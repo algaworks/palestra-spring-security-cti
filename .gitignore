@@ -1,0 +1,9 @@
+.settings/
+target/
+.idea/
+.DS_Store
+.classpath
+.project
+tmp
+local.properties
+.springBeans

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html
+    xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4"
+>
+	<head>
+	    <title>Spring Security</title>
+	
+	    <link th:href="@{/webjars/bootstrap/css/bootstrap.min.css}" rel="stylesheet"/>
+	
+	    <link th:href="@{/webjars/bootstrap/css/bootstrap-theme.min.css}" rel="stylesheet"/>
+	
+	    <link th:href="@{/webjars/font-awesome/css/font-awesome.min.css}" rel="stylesheet"/>
+	
+	    <link th:href="@{/css/style.css}" rel="stylesheet"/>
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-default navbar-fixed-top">
+		    <div class="container">
+		        <div class="navbar-header">
+		            <button
+		                    type="button" class="navbar-toggle collapsed"
+		                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+		                    aria-controls="navbar"
+		            >
+		                <span class="sr-only">Toggle navigation</span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		                <span class="icon-bar"></span>
+		            </button>
+		
+		            <a class="navbar-brand" href="/">GP</a>
+		        </div>
+		        <div id="navbar" class="collapse navbar-collapse">
+		            <ul class="nav navbar-nav">
+		                <li sec:authorize="hasRole('PG_PROJETOS')"><a href="/projetos">Projetos</a></li>
+		                <li sec:authorize="hasRole('PG_REL_CUSTOS')"><a href="/relatorio-custos">Relatório Custos</a></li>
+		                <li sec:authorize="hasRole('PG_REL_EQUIPE')"><a href="/relatorio-equipe">Relatório Equipe</a></li>
+		            </ul>
+		            
+		            <form action="/logout" method="post" class="navbar-form navbar-right">
+		        		<button type="submit" class="btn btn-default">
+		        			<span class="glyphicon glyphicon-log-out"></span>
+		        			Sair
+		        		</button>
+		        		
+		        		<input type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}" />
+			      	</form>
+		            <!--
+		            -->
+		            
+		            <ul class="nav navbar-nav navbar-right">
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+								AlgaWorks 
+								<span class="caret"></span>
+							</a>
+							
+							<ul class="dropdown-menu">
+								<li><a href="http://www.algaworks.com" target="_blank">Site</a></li>
+								<li><a href="http://www.facebook.com/algaworks" target="_blank">Facebook</a></li>
+				                <li><a href="http://www.youtube.com/algaworks" target="_blank">YouTube</a></li>
+				                <li><a href="http://github.com/algaworks" target="_blank">Github</a></li>
+				                <li><a href="http://blog.algaworks.com/" target="_blank">Nosso Blog</a></li>
+							</ul>
+						</li>
+		            </ul>
+		        </div>
+		    </div>
+		</nav>
+		
+		<div class="container" >
+		    <div layout:fragment="content">O conteúdo das páginas filhas aparecerão aqui.</div>	
+		</div>
+		
+		<div class="container" >
+	    	<hr />
+	    	
+		    <footer>
+		    	<h4>Palestra online "Spring Security" por Alexandre Afonso da AlgaWorks</h4>
+			</footer>	
+		</div>
+		
+		<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		
+		<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>		
+	</body>
+</html>

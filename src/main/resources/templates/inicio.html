@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html 
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout}"
+>
+	<head>
+		<title>Bem vindo ao sistema!</title>
+	</head>
+	
+	<body>
+	
+		<div layout:fragment="content">
+			<div class="page-header">
+				<h1><span sec:authentication="principal.nome"></span>, Bem vindo ao sistema!</h1>
+			</div>
+	
+			<p>
+				Use o menu acima para navegar.
+			</p>
+		</div>	
+	</body>
+</html>
