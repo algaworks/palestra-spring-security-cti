@@ -16,7 +16,7 @@ Este é o código fonte usado na palestra para o Contresso de TI.
 10. Exibindo o nome do usuário na página html
 11. Configurando o "remember-me"
 
-## Como para rodar o projeto
+## Como rodar o projeto
 
 ```shell
 $ ./mvnw clean package spring-boot:run
