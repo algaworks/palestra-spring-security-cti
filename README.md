@@ -21,3 +21,5 @@ Este é o código fonte usado na palestra para o Contresso de TI.
 ```shell
 $ ./mvnw clean package spring-boot:run
 ```
+
+O único pré-requisito é ter o JDK instalado.
